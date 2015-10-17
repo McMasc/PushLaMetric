@@ -53,10 +53,11 @@ module.exports = {
    * @param  {Json} frames
    * @param  {String} Access Token (Baes64)
    * @param  {String} WidgetID
+   * @param  {Function} callback
    */
-  pushFrames: function(frames, accessToken, widgetId) {
-    return emitMessageToLeMatric(frames, accessToken, widgetId);
-  }
+  pushFrames: function(frames, accessToken, widgetId, callback) {
+    return emitMessageToLeMatric(frames, accessToken, widgetId, callback);
+  };
 };
 
 var main = function() {
