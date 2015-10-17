@@ -57,13 +57,13 @@ module.exports = {
    */
   pushFrames: function(frames, accessToken, widgetId, callback) {
     return emitMessageToLeMatric(frames, accessToken, widgetId, callback);
-  };
+  }
 };
 
 var main = function() {
   console.log("Update LaMetric Text ...");
 
-  nconf.use('file', { file: './lametric-config.json' });
+  nconf.use('file', { file: './config.json' });
   nconf.load();
 
   if (nconf.get('url') === undefined)
@@ -80,7 +80,8 @@ var main = function() {
             }
         ]
     };
-    emitMessageToLeMatric(frames, nconf.get('accessToken'), nconf.get('widgetId'));
+
+    emitMessageToLeMatric(frames, nconf.get('accessToken'), nconf.get('widgetId'), function() { console.log("finised.") } );
   }
 }
 
