@@ -8,7 +8,6 @@ function writeDefaultSettings()
 
   nconf.set('accessToken',  '');
   nconf.set('widgetId',     '')
-  nconf.set('url',          'https://developer.lametric.com/api/V1/dev/widget/update/');
 
   nconf.save(function (err) {
     if (err) {
@@ -20,14 +19,14 @@ function writeDefaultSettings()
   });
 }
 
-function emitMessageToLeMatric(frames)
+function emitMessageToLeMatric(frames, accessToken, widgetId)
 {
   var headers = {
       'Accept': 'application/json',
-      'X-Access-Token': nconf.get('accessToken'),
+      'X-Access-Token': accessToken,
       'Cache-Control': 'no-cache' };
 
-  var postURL  = nconf.get('url') + nconf.get('widgetId');
+  var postURL  = 'https://developer.lametric.com/api/V1/dev/widget/update/' + widgetId;
   var postData = JSON.stringify(frames);
 
   var options = {
@@ -52,9 +51,11 @@ module.exports = {
    * Push LaMetric Frames and update it's content
    *
    * @param  {Json} frames
+   * @param  {String} Access Token (Baes64)
+   * @param  {String} WidgetID
    */
-  pushFrames: function(frames) {
-    return emitMessageToLeMatric(frames);
+  pushFrames: function(frames, accessToken, widgetId) {
+    return emitMessageToLeMatric(frames, accessToken, widgetId);
   }
 };
 
@@ -73,38 +74,12 @@ var main = function() {
         "frames": [
             {
                 "index": 0,
-                "text": " News ",
-                "icon": "i1166"
-            },
-            {
-                "index": 1,
-                "text": "1# A chess-set you wear in a ring",
-                "icon": null
-            },
-            {
-                "index": 2,
-                "text": "2# Gerichtsurteil: Google darf Bücher durchsuchen",
-                "icon": null
-            },
-            {
-                "index": 3,
-                "text": "3# Safe Harbor: Drei Monate Galgenfrist für neue Regelung",
-                "icon": null
-            },
-            {
-                "index": 4,
-                "text": "4# test sadf asdf",
-                "icon": null
-            },
-            {
-                "index": 5,
-                "text": "",
+                "text": " Test Message ",
                 "icon": null
             }
         ]
     };
-
-    emitMessageToLeMatric(frames);
+    emitMessageToLeMatric(frames, nconf.get('accessToken'), nconf.get('widgetId'));
   }
 }
 
