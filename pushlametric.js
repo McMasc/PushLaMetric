@@ -19,7 +19,7 @@ function writeDefaultSettings()
   });
 }
 
-function emitMessageToLeMatric(frames, accessToken, widgetId)
+function emitMessageToLeMatric(frames, accessToken, widgetId, callback)
 {
   var headers = {
       'Accept': 'application/json',
@@ -39,9 +39,9 @@ function emitMessageToLeMatric(frames, accessToken, widgetId)
   // Start the request
   request(options, function (error, response, body) {
     if (!error && response.statusCode == 200) {
-      console.log(response.statusCode, body);
+      callback(response.statusCode);
     } else {
-      console.log(error);
+      callback(response.statusCode);
     }
   });
 }
