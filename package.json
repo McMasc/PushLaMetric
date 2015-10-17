@@ -10,6 +10,9 @@
     "type": "git",
     "url": "https://github.com/McMasc/PushLaMetric"
   },
+  "dependencies": {
+    "request": "2.65.0",
+  },
   "author": "Martin Schmidinger <m.schmidinger@mascgroup.com> (http://mascgroup.com)",
   "license": "ISC"
 }
