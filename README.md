@@ -4,7 +4,7 @@ Very simple node.js module to push frames to a LaMetric led device.
 # LaMetric
 LaMetric is a nice LED device which is successfully founded on Kickstarter. 
 With a smartphone you could install new apps on the device. 
-A app on LaMetric is basicly a canvas to display icon and the text on the device. A app could be configured either pull it's data from a http server or a server could push data via http post to the device.
+A app on LaMetric is basicly a canvas to display icon and a text on the device. A app could be configured either pull it's data from a http server or a server could push data via http post to the device. 
 
 On https://developer.lametric.com/ you can create free apps which could be private or public.
 
