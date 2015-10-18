@@ -1,7 +1,7 @@
 {
   "name": "pushlametric",
-  "version": "0.0.1",
-  "description": "Very simple modul to push frames to a lametric led device.",
+  "version": "0.0.2",
+  "description": "Very simple module to push frames to a lametric led device.",
   "main": "pushlametric.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,8 @@
     "url": "https://github.com/McMasc/PushLaMetric"
   },
   "dependencies": {
-    "request": "2.65.0"
+    "request": "2.65.0",
+    "nconf": "*"
   },
   "author": "Martin Schmidinger <m.schmidinger@mascgroup.com> (http://mascgroup.com)",
   "license": "ISC"
